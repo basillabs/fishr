@@ -6,7 +6,7 @@ import {
   Text,
   View,
 } from 'react-native';
-import { LEVELS, LEVEL_COLORS } from "./Constants";
+import { CONVERSATION_LEVELS, LEVELS, LEVEL_COLORS } from "./Constants";
 import LevelCircle from "./LevelCircle";
 
 export default class PersonDetails extends React.Component {
@@ -104,6 +104,63 @@ export default class PersonDetails extends React.Component {
     )
   }
 
+  renderConversationSpectrum = () => {
+    return (
+      <View style={styles.sectionContainer}>
+        <Text style={styles.headerText}>CONVERSATION SPECTRUM</Text>
+        <View style={{
+          flex: 1,
+          flexDirection: "row",
+          alignItems: "center",
+        }}>
+          <LevelCircle
+            backgroundColor="white"
+            color="black"
+            borderColor="#07070719"
+            number={this.props.conversationLevel}
+          />
+          <Text style={{
+            fontFamily: "georgia",
+            fontSize: 14,
+            color: "#666666",
+            marginLeft: 10,
+          }}>{CONVERSATION_LEVELS[this.props.conversationLevel - 1]}</Text>
+          {this.renderConversationMeter()}
+        </View>
+      </View>
+    );
+  }
+
+  renderConversationMeter = () => {
+    let dots = CONVERSATION_LEVELS.map((level, index) => {
+      return (
+        <View
+          key={"conversationDot" + index}
+          style={{
+            width: 6,
+            height: 6,
+            borderRadius: 6,
+            borderWidth: 1,
+            borderColor: "#00000072",
+            backgroundColor: index < this.props.conversationLevel ? "#000000A0" : "#FFFFFFFF",
+          }}
+        />
+      );
+    });
+    return (
+      <View style={{width: 100, position: "absolute", right: 0}}>
+        <View style={{
+          flex: 1,
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}>
+          {dots}
+        </View>
+      </View>
+    );
+  }
+
   renderKeyQuestions = () => {
     let questionRows = this.props.keyQuestions.map((question, index) => {
       return (
@@ -148,8 +205,9 @@ export default class PersonDetails extends React.Component {
         {this.renderDelimiter()}
         {this.renderSpiritualInterest()}
         {this.renderDelimiter()}
-        {this.renderKeyQuestions()}
+        {this.renderConversationSpectrum()}
         {this.renderDelimiter()}
+        {this.renderKeyQuestions()}
       </ScrollView>
     )
   }
@@ -173,7 +231,7 @@ const styles = StyleSheet.create({
     fontFamily: "proxima-nova-semibold",
     fontSize: 11,
     color: "#666666",
-    marginBottom: 10,
+    marginBottom: 20,
   },
   normalText: {
     fontFamily: "georgia",

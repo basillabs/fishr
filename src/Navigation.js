@@ -32,6 +32,7 @@ class PeopleScreen extends React.Component {
       <PersonDetails
         name="Maria Perez"
         level={3}
+        conversationLevel={4}
         phoneNumber="+56 2 52908910"
         keyQuestions={[
           {question: "Are they open to prayer?", response: "Yes"},

@@ -22,7 +22,7 @@ export default class LevelCircle extends React.Component {
           height: 60,
           width: 60,
           borderRadius: 30,
-          borderColor: "#FFFFFF80",
+          borderColor: this.props.borderColor || "#FFFFFF80",
           borderWidth: 2,
         }}>
           <Text style={{
