@@ -34,6 +34,7 @@ export default class SpectrumSlider extends React.Component {
           value={3}
           trackStyle={styles.track}
           thumbStyle={styles.thumb}
+          thumbImage={require('../assets/images/slider.png')}
           thumbTouchSize={{width: 60, height: 60}}
           onValueChange={this.props.onValueChange}
         />
@@ -44,8 +45,6 @@ export default class SpectrumSlider extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    marginLeft: 10,
-    marginRight: 10,
     alignItems: "stretch",
     justifyContent: "center"
   },
@@ -65,8 +64,9 @@ const styles = StyleSheet.create({
   thumb: {
     backgroundColor: "white",
     borderRadius: 24,
-    borderWidth: 1,
     height: 48,
     width: 48,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });

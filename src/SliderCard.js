@@ -61,5 +61,6 @@ const styles = StyleSheet.create({
     color: '#666666',
     marginHorizontal: 32,
     height: 70,
+    width: 300,
   },
 });
