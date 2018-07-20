@@ -13,6 +13,7 @@ export default class App extends React.Component {
   componentDidMount() {
     let promise = Font.loadAsync({
       'georgia': require('./assets/fonts/Georgia.ttf'),
+      'proxima-nova-regular': require('./assets/fonts/Proxima-Nova-Regular.ttf'),
       'proxima-nova-semibold': require('./assets/fonts/Proxima-Nova-Semibold.ttf'),
     });
     promise.then((success) => {

@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Entypo, Feather, Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { createBottomTabNavigator, TabBarBottom } from 'react-navigation';
 import { ACTIVE_TINT_COLOR, BACKGROUND_COLOR, INACTIVE_TINT_COLOR } from './Constants';
+import PersonDetails from './PersonDetails';
 import SliderCard from './SliderCard';
 
 class HomeScreen extends React.Component {
@@ -25,12 +26,14 @@ class IntakeScreen extends React.Component {
   }
 }
 
-class SettingsScreen extends React.Component {
+class PeopleScreen extends React.Component {
   render() {
     return (
-      <View style={styles.stack}>
-        <Text>Settings!</Text>
-      </View>
+      <PersonDetails
+        name="Maria Perez"
+        level={3}
+        phoneNumber="+56 2 52908910"
+      />
     );
   }
 }
@@ -51,7 +54,7 @@ export default createBottomTabNavigator(
   {
     Home: HomeScreen,
     Intake: IntakeScreen,
-    Settings: SettingsScreen,
+    People: PeopleScreen,
   },
   {
     navigationOptions: ({navigation}) => ({
@@ -76,7 +79,7 @@ export default createBottomTabNavigator(
         if (routeName === 'Home') {
           return <Entypo name={'bar-graph'} size={25} color={tintColor} />;
         }
-        if (routeName === 'Settings') {
+        if (routeName === 'People') {
           return <MaterialIcons name={'people'} size={25} color={tintColor} />;
         }
 

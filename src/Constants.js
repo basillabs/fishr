@@ -1,9 +1,9 @@
 export const LEVELS = [
-  "Level 1: This person is hostile against Christianity.",
-  "Level 2: This person is not interested in faith or spirituality.",
-  "Level 3: This person is neutral in their spiritual walk. Neither open or closed to the idea of faith exploration.",
-  "Level 4: This person is open to the idea of faith exploration, but has reservations.",
-  "Level 5: This person is actively seeking and would like guidance.",
+  "This person is hostile against Christianity.",
+  "This person is not interested in faith or spirituality.",
+  "This person is neutral in their spiritual walk. Neither open or closed to the idea of faith exploration.",
+  "This person is open to the idea of faith exploration, but has reservations.",
+  "This person is actively seeking and would like guidance.",
 ]
 
 export const LEVEL_COLORS = [

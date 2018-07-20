@@ -29,7 +29,7 @@ export default class SliderCard extends React.Component {
             marginVertical: 20,
             backgroundColor: LEVEL_COLORS[this.state.level - 1],
           }}/>
-          <Text style={styles.description}>{LEVELS[this.state.level - 1]}</Text>
+          <Text style={styles.description}>{"Level " + this.state.level + ": " + LEVELS[this.state.level - 1]}</Text>
         </View>
         <SpectrumSlider
           onValueChange={this.onValueChange}
@@ -54,6 +54,7 @@ const styles = StyleSheet.create({
     fontFamily: "proxima-nova-semibold",
     fontSize: 15,
     color: '#666666',
+    textAlign: 'center',
   },
   description: {
     fontFamily: "georgia",
@@ -61,6 +62,6 @@ const styles = StyleSheet.create({
     color: '#666666',
     marginHorizontal: 32,
     height: 70,
-    width: 300,
+    width: 270,
   },
 });
