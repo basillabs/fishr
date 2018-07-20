@@ -113,6 +113,37 @@ export default class PersonDetails extends React.Component {
     )
   }
 
+  renderKeyQuestions = () => {
+    let questionRows = this.props.keyQuestions.map((question, index) => {
+      return (
+        <View
+          key={"keyQuestion" + index}
+          style={{
+            flex: 1,
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-between",
+            marginVertical: 10,
+          }}
+        >
+          <Text style={styles.normalText}>{question.question}</Text>
+          <Text style={question.response === "Yes" ? styles.yesText : styles.nonYesText}>{question.response}</Text>
+        </View>
+      );
+    });
+    return (
+      <View style={styles.sectionContainer}>
+        <View style={{
+          flex: 1,
+          flexDirection: "column",
+        }}>
+          <Text style={styles.headerText}>KEY QUESTIONS</Text>
+          {questionRows}
+        </View>
+      </View>
+    )
+  }
+
   render() {
     return (
       <ScrollView contentContainerStyle={styles.container}>
@@ -121,6 +152,8 @@ export default class PersonDetails extends React.Component {
         {this.renderContactInfo()}
         {this.renderDelimiter()}
         {this.renderSpiritualInterest()}
+        {this.renderDelimiter()}
+        {this.renderKeyQuestions()}
         {this.renderDelimiter()}
       </ScrollView>
     )
@@ -169,6 +202,19 @@ const styles = StyleSheet.create({
     fontFamily: "georgia",
     fontSize: 14,
     color: "#666666",
+  },
+  yesText: {
+    fontFamily: "proxima-nova-semibold",
+    fontSize: 14,
+    textAlign: 'right',
+    width: 40,
+  },
+  nonYesText: {
+    fontFamily: "proxima-nova-semibold",
+    fontSize: 14,
+    color: "#0000004F",
+    textAlign: 'right',
+    width: 40,
   },
   phoneText: {
     fontFamily: "proxima-nova-regular",

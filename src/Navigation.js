@@ -31,8 +31,14 @@ class PeopleScreen extends React.Component {
     return (
       <PersonDetails
         name="Maria Perez"
-        level={3}
+        level={5}
         phoneNumber="+56 2 52908910"
+        keyQuestions={[
+          {question: "Are they open to prayer?", response: "Yes"},
+          {question: "Are they open to reading the Bible?", response: "No"},
+          {question: "Are they open to coming to church?", response: "N/A"},
+          {question: "Did they accept Christ?", response: "N/A"},
+        ]}
       />
     );
   }
