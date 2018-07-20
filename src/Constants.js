@@ -14,3 +14,7 @@ export const LEVEL_COLORS = [
   '#30BE91',
 ]
 
+export const BACKGROUND_COLOR = '#F1F2F2';
+export const ACTIVE_TINT_COLOR = '#2E3130';
+export const INACTIVE_TINT_COLOR = '#F1F2F2';
+

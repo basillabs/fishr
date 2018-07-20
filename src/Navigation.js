@@ -1,13 +1,14 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { Entypo, Feather, Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { createBottomTabNavigator, TabBarBottom } from 'react-navigation';
+import { ACTIVE_TINT_COLOR, BACKGROUND_COLOR, INACTIVE_TINT_COLOR } from './Constants';
 import SliderCard from './SliderCard';
 
 class HomeScreen extends React.Component {
   render() {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <View style={styles.stack}>
         <Text>Home!</Text>
       </View>
     );
@@ -17,7 +18,9 @@ class HomeScreen extends React.Component {
 class IntakeScreen extends React.Component {
   render() {
     return (
-      <SliderCard />
+      <View style={styles.stack}>
+        <SliderCard />
+      </View>
     );
   }
 }
@@ -25,12 +28,24 @@ class IntakeScreen extends React.Component {
 class SettingsScreen extends React.Component {
   render() {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <View style={styles.stack}>
         <Text>Settings!</Text>
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: 'white',
+  },
+  stack: {
+    backgroundColor: BACKGROUND_COLOR,
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
 
 export default createBottomTabNavigator(
   {
@@ -44,40 +59,34 @@ export default createBottomTabNavigator(
         const { routeName } = navigation.state;
         let iconName;
         if (routeName === 'Intake') {
-          iconName = `ios-add${focused ? '' : '-outline'}`;
           return (
             <View style={{
                 height: 80,
                 width: 80,
                 borderRadius: 100,
-                backgroundColor: '#FE6D64',
+                backgroundColor: '#2E3130',
                 paddingTop: 15,
                 position: 'absolute',
                 alignItems: 'center',
             }}>
-              <Ionicons name={iconName} size={45} color={tintColor} />
+              <Ionicons name={'ios-add'} size={45} color={INACTIVE_TINT_COLOR} />
             </View>
           )
         }
         if (routeName === 'Home') {
-          // FIXME: these are different icons
-          if (focused) {
-            return <Entypo name={'bar-graph'} size={25} color={tintColor} />;
-          } else {
-            return <Feather name={'bar-chart'} size={25} color={tintColor} />;
-          }
+          return <Entypo name={'bar-graph'} size={25} color={tintColor} />;
         }
         if (routeName === 'Settings') {
-          iconName = `people${focused ? '' : '-outline'}`;
-          return <MaterialIcons name={iconName} size={25} color={tintColor} />;
+          return <MaterialIcons name={'people'} size={25} color={tintColor} />;
         }
 
       },
     }),
     tabBarOptions: {
-      activeTintColor: 'tomato',
-      inactiveTintColor: 'gray',
+      activeTintColor: ACTIVE_TINT_COLOR,
+      inactiveTintColor: INACTIVE_TINT_COLOR,
       showLabel: false,
+      style: styles.container,
     },
     initialRouteName: 'Intake',
   }
