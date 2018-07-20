@@ -7,6 +7,7 @@ import {
   View,
 } from 'react-native';
 import { LEVELS, LEVEL_COLORS } from "./Constants";
+import LevelCircle from "./LevelCircle";
 
 export default class PersonDetails extends React.Component {
   renderTitleBar = () => {
@@ -20,8 +21,12 @@ export default class PersonDetails extends React.Component {
         height: 200,
       }}>
         <Text style={styles.titleText}>{this.props.name}</Text>
-        <View style={styles.titleLevelCircle}>
-          <Text style={styles.titleLevel}>{this.props.level}</Text>
+        <View style={{marginRight: 15}}>
+        <LevelCircle
+          backgroundColor={LEVEL_COLORS[this.props.level - 1]}
+          color="white"
+          number={this.props.level}
+        />
         </View>
       </View>
     )
@@ -59,26 +64,12 @@ export default class PersonDetails extends React.Component {
           justifyContent: "space-between",
           alignItems: "center",
         }}>
-          <View style={{
-            height: 60,
-            width: 70,
-          }}>
-            <View style={{
-              position: "absolute",
-              flex: 1,
-              justifyContent: "center",
-              alignItems: "center",
-              backgroundColor: LEVEL_COLORS[this.props.level - 1],
-              height: 60,
-              width: 60,
-              borderRadius: 30,
-              borderColor: "#FFFFFF80",
-              borderWidth: 2,
-            }}>
-              <Text style={styles.titleLevel}>{this.props.level}</Text>
-            </View>
-          </View>
-          <View style={{marginRight: 70}}> // why...
+          <LevelCircle
+            backgroundColor={LEVEL_COLORS[this.props.level - 1]}
+            color="white"
+            number={this.props.level}
+          />
+          <View style={{marginLeft: 10, marginRight: 60}}> // why...
             <Text style={styles.normalText}>{LEVELS[this.props.level - 1]}</Text>
           </View>
         </View>
@@ -127,7 +118,11 @@ export default class PersonDetails extends React.Component {
           }}
         >
           <Text style={styles.normalText}>{question.question}</Text>
-          <Text style={question.response === "Yes" ? styles.yesText : styles.nonYesText}>{question.response}</Text>
+          <Text style={
+            question.response === "Yes" ? styles.yesText : styles.nonYesText
+          }>
+            {question.response}
+          </Text>
         </View>
       );
     });
@@ -170,24 +165,6 @@ const styles = StyleSheet.create({
     fontSize: 36,
     color: "white",
     paddingLeft: 15,
-  },
-  titleLevelCircle: {
-    position: "absolute",
-    right: 15,
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: 60,
-    width: 60,
-    borderRadius: 30,
-    borderColor: "#FFFFFF80",
-    borderWidth: 2,
-  },
-  titleLevel: {
-    fontFamily: "proxima-nova-semibold",
-    fontSize: 25,
-    color: "white",
-    textAlign: 'center',
   },
   sectionContainer: {
     padding: 32,
