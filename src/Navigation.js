@@ -14,7 +14,7 @@ class HomeScreen extends React.Component {
   }
 }
 
-class SettingsScreen extends React.Component {
+class IntakeScreen extends React.Component {
   render() {
     return (
       <SliderCard />
@@ -22,10 +22,20 @@ class SettingsScreen extends React.Component {
   }
 }
 
+class SettingsScreen extends React.Component {
+  render() {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>Settings!</Text>
+      </View>
+    );
+  }
+}
+
 export default createBottomTabNavigator(
   {
     Home: HomeScreen,
-    Center: HomeScreen,
+    Intake: IntakeScreen,
     Settings: SettingsScreen,
   },
   {
@@ -33,7 +43,7 @@ export default createBottomTabNavigator(
       tabBarIcon: ({ focused, tintColor }) => {
         const { routeName } = navigation.state;
         let iconName;
-        if (routeName === 'Center') {
+        if (routeName === 'Intake') {
           iconName = `ios-add${focused ? '' : '-outline'}`;
           return (
             <View style={{
@@ -69,7 +79,6 @@ export default createBottomTabNavigator(
       inactiveTintColor: 'gray',
       showLabel: false,
     },
-    // animationEnabled: false,
-    // swipeEnabled: false,
+    initialRouteName: 'Intake',
   }
 );
