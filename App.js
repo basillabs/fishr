@@ -1,20 +1,18 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Font } from 'expo';
 import Navigation from './src/Navigation';
 
 export default class App extends React.Component {
+  componentDidMount() {
+    Font.loadAsync({
+      'georgia': require('./assets/fonts/Georgia.ttf'),
+      'proxima-nova-semibold': require('./assets/fonts/Proxima-Nova-Semibold.ttf'),
+    })
+  }
+
   render() {
     return (
       <Navigation />
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

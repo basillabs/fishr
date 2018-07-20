@@ -1,22 +1,7 @@
 import React from 'react';
 import Slider from "react-native-slider";
 import { StyleSheet, View } from 'react-native';
-
-const LEVELS = [
-  "ONE",
-  "TWO",
-  "THREE",
-  "FOUR",
-  "FIVE",
-]
-
-const LEVEL_COLORS = [
-  '#ED5555',
-  '#F1B34E',
-  '#EFDA5E',
-  '#80E06C',
-  '#30BE91',
-]
+import { LEVELS, LEVEL_COLORS } from "./Constants";
 
 export default class SpectrumSlider extends React.Component {
   render() {
@@ -49,6 +34,8 @@ export default class SpectrumSlider extends React.Component {
           value={3}
           trackStyle={styles.track}
           thumbStyle={styles.thumb}
+          thumbTouchSize={{width: 60, height: 60}}
+          onValueChange={this.props.onValueChange}
         />
       </View>
     )
@@ -57,7 +44,6 @@ export default class SpectrumSlider extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     marginLeft: 10,
     marginRight: 10,
     alignItems: "stretch",
@@ -73,7 +59,7 @@ const styles = StyleSheet.create({
   },
   track: {
     backgroundColor: '#979797',
-    height: 0.1,
+    height: 0.4,
     marginHorizontal: 24,
   },
   thumb: {
