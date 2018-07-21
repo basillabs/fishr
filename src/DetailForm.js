@@ -4,6 +4,7 @@ import { BACKGROUND_COLOR } from './Constants';
 import SliderCard from './SliderCard';
 import { CONVERSATION_LEVELS, CONVERSATION_COLORS, KEY_QUESTIONS, LEVELS, LEVEL_COLORS } from "./Constants";
 import LevelCircle from "./LevelCircle";
+import YNToggle from "./YNToggle";
 
 export default class DetailForm extends React.Component {
 
@@ -21,7 +22,7 @@ export default class DetailForm extends React.Component {
           }}
         >
           <Text style={styles.normalText}>{question}</Text>
-          {this.renderYN()}
+          <YNToggle />
         </View>
       );
     });
@@ -41,33 +42,6 @@ export default class DetailForm extends React.Component {
           }}/>
         </View>
         {questionRows}
-      </View>
-    );
-  }
-
-  renderYN = () => {
-    return (
-      <View style={{
-        position: "absolute",
-        right: 0,
-        flex: 1,
-        flexDirection: "row",
-        alignItems: "center",
-      }}>
-        <LevelCircle
-          backgroundColor="white"
-          color="black"
-          number="Y"
-          size={30}
-          sizeFont={12}
-        />
-        <LevelCircle
-          backgroundColor="white"
-          color="black"
-          number="N"
-          size={30}
-          sizeFont={12}
-        />
       </View>
     );
   }

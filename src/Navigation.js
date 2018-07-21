@@ -11,13 +11,10 @@ import PersonList from './PersonList';
 class StatisticsScreen extends React.Component {
   render() {
     return (
-      <NewPersonForm />
+      <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
+        <Entypo name={'bar-graph'} size={75} color={ACTIVE_TINT_COLOR} />
+      </View>
     );
-    // return (
-    //   <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
-    //     <Entypo name={'bar-graph'} size={75} color={ACTIVE_TINT_COLOR} />
-    //   </View>
-    // );
   }
 }
 
