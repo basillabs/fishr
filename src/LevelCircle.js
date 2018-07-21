@@ -8,10 +8,12 @@ import { LEVEL_COLORS } from "./Constants";
 
 export default class LevelCircle extends React.Component {
   render() {
+    const size = this.props.size || 60;
+    const fontSize = this.props.fontSize || 25;
     return (
       <View style={{
-        height: 60,
-        width: 60,
+        height: size,
+        width: size,
       }}>
         <View style={{
           position: "absolute",
@@ -19,15 +21,15 @@ export default class LevelCircle extends React.Component {
           justifyContent: "center",
           alignItems: "center",
           backgroundColor: this.props.backgroundColor,
-          height: 60,
-          width: 60,
-          borderRadius: 30,
+          height: size,
+          width: size,
+          borderRadius: size / 2,
           borderColor: this.props.borderColor || "#FFFFFF80",
           borderWidth: 2,
         }}>
           <Text style={{
             fontFamily: "proxima-nova-semibold",
-            fontSize: 25,
+            fontSize: fontSize,
             color: this.props.color,
             textAlign: "center",
           }}>{this.props.number}</Text>

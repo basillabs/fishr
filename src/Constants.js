@@ -27,6 +27,13 @@ export const CONVERSATION_COLORS = CONVERSATION_LEVELS.map(() => {
   return "#4A90E2";
 });
 
+export const KEY_QUESTIONS = [
+    "Are they open to prayer?",
+    "Are they open to reading the Bible?",
+    "Are they open to coming to church?",
+    "Did they accept Christ?",
+];
+
 export const BACKGROUND_COLOR = '#F1F2F2';
 export const ACTIVE_TINT_COLOR = '#2E3130';
 export const INACTIVE_TINT_COLOR = '#F1F2F2';

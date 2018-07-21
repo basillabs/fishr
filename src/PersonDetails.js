@@ -7,7 +7,7 @@ import {
   View,
 } from 'react-native';
 import { withMappedNavigationProps } from 'react-navigation-props-mapper'
-import { CONVERSATION_LEVELS, LEVELS, LEVEL_COLORS } from "./Constants";
+import { CONVERSATION_LEVELS, KEY_QUESTIONS, LEVELS, LEVEL_COLORS } from "./Constants";
 import LevelCircle from "./LevelCircle";
 
 @withMappedNavigationProps()
@@ -164,7 +164,7 @@ export default class PersonDetails extends React.Component {
   }
 
   renderKeyQuestions = () => {
-    let questionRows = this.props.keyQuestions.map((question, index) => {
+    let questionRows = this.props.keyQuestions.map((response, index) => {
       return (
         <View
           key={"keyQuestion" + index}
@@ -176,11 +176,11 @@ export default class PersonDetails extends React.Component {
             marginVertical: 10,
           }}
         >
-          <Text style={styles.normalText}>{question.question}</Text>
+          <Text style={styles.normalText}>{KEY_QUESTIONS[index]}</Text>
           <Text style={
-            question.response === "Yes" ? styles.yesText : styles.nonYesText
+            response === "Yes" ? styles.yesText : styles.nonYesText
           }>
-            {question.response}
+            {response}
           </Text>
         </View>
       );

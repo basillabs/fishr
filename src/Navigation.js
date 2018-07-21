@@ -31,25 +31,6 @@ class IntakeScreen extends React.Component {
   }
 }
 
-class PeopleScreen extends React.Component {
-  render() {
-    return (
-      <PersonDetails
-        name="Maria Perez"
-        level={3}
-        conversationLevel={4}
-        phoneNumber="+56 2 52908910"
-        keyQuestions={[
-          {question: "Are they open to prayer?", response: "Yes"},
-          {question: "Are they open to reading the Bible?", response: "No"},
-          {question: "Are they open to coming to church?", response: "N/A"},
-          {question: "Did they accept Christ?", response: "N/A"},
-        ]}
-      />
-    );
-  }
-}
-
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
@@ -85,10 +66,7 @@ const PeopleStack = createStackNavigator(
           conversationLevel: 5,
           phoneNumber: "+56 2 52908910",
           keyQuestions: [
-            {question: "Are they open to prayer?", response: "Yes"},
-            {question: "Are they open to reading the Bible?", response: "Yes"},
-            {question: "Are they open to coming to church?", response: "Yes"},
-            {question: "Did they accept Christ?", response: "No"},
+            "Yes", "Yes", "Yes", "No",
           ],
         },
 
@@ -98,10 +76,7 @@ const PeopleStack = createStackNavigator(
           conversationLevel: 4,
           phoneNumber: "+56 2 52908910",
           keyQuestions: [
-            {question: "Are they open to prayer?", response: "Yes"},
-            {question: "Are they open to reading the Bible?", response: "Yes"},
-            {question: "Are they open to coming to church?", response: "No"},
-            {question: "Did they accept Christ?", response: "N/A"},
+            "Yes", "Yes", "No", "N/A",
           ],
         },
 
