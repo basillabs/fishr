@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
   },
   track: {
     backgroundColor: 'transparent',
-    height: 0.4,
+    height: 2,
     marginHorizontal: 24,
   },
   // Kinda faked this. There might be a bug in react when width is 100%.
