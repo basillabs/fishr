@@ -4,14 +4,24 @@ import { Entypo, Feather, Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { createBottomTabNavigator, TabBarBottom } from 'react-navigation';
 import { ACTIVE_TINT_COLOR, BACKGROUND_COLOR, INACTIVE_TINT_COLOR } from './Constants';
 import PersonDetails from './PersonDetails';
+import PersonList from './PersonList';
 import SliderCard from './SliderCard';
 
 class HomeScreen extends React.Component {
   render() {
     return (
-      <View style={styles.stack}>
-        <Text>Home!</Text>
-      </View>
+      <PersonList
+        people={[
+          {
+            name: "Maria Perez",
+            level: 4,
+          },
+          {
+            name: "Kevin Kim",
+            level: 3,
+          },
+        ]}
+      />
     );
   }
 }

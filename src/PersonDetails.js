@@ -215,8 +215,6 @@ export default class PersonDetails extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: "stretch",
-    justifyContent: "center",
   },
   titleText: {
     fontFamily: "georgia",
