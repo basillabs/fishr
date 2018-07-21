@@ -3,6 +3,9 @@
     "sdkVersion": "27.0.0",
     "name": "Fishr",
     "description": "A tool for evangelists.",
-    "icon": "./assets/images/icon.png"
+    "icon": "./assets/images/icon.png",
+    "splash": {
+        "image": "./assets/images/splash.png"
+    }
   }
 }
