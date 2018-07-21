@@ -3,30 +3,42 @@ import {
   ScrollView,
   StyleSheet,
   Text,
+  TouchableHighlight,
   View,
 } from 'react-native';
+import { withMappedNavigationProps } from 'react-navigation-props-mapper'
 import { MaterialIcons } from '@expo/vector-icons';
 import { LEVELS, LEVEL_COLORS } from "./Constants";
 import LevelCircle from "./LevelCircle";
 
+@withMappedNavigationProps()
 export default class PersonList extends React.Component {
+
+  onPress = (index) => () => {
+    this.props.navigation.navigate("PersonDetails", this.props.people[index]);
+  }
+
   render() {
     let people = this.props.people.map((person, index) => {
       return (
-        <View
+        <TouchableHighlight
           key={"person" + index}
-          style={styles.personContainer}
+          onPress={this.onPress(index)}
         >
-          <View style={styles.personContainerInner}>
-            <LevelCircle
-              backgroundColor={LEVEL_COLORS[person.level - 1]}
-              color="white"
-              number={person.level}
-            />
-            <Text style={styles.name}>{person.name}</Text>
-            <MaterialIcons style={styles.chevron} name={'chevron-right'} size={16} color={'#999999'} />
+          <View
+            style={styles.personContainer}
+          >
+            <View style={styles.personContainerInner}>
+              <LevelCircle
+                backgroundColor={LEVEL_COLORS[person.level - 1]}
+                color="white"
+                number={person.level}
+              />
+              <Text style={styles.name}>{person.name}</Text>
+              <MaterialIcons style={styles.chevron} name={'chevron-right'} size={16} color={'#999999'} />
+            </View>
           </View>
-        </View>
+        </TouchableHighlight>
       );
     });
     let peopleWithBorders = [];

@@ -6,9 +6,11 @@ import {
   Text,
   View,
 } from 'react-native';
+import { withMappedNavigationProps } from 'react-navigation-props-mapper'
 import { CONVERSATION_LEVELS, LEVELS, LEVEL_COLORS } from "./Constants";
 import LevelCircle from "./LevelCircle";
 
+@withMappedNavigationProps()
 export default class PersonDetails extends React.Component {
   renderTitleBar = () => {
     return (

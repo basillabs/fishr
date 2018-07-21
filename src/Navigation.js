@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Entypo, Feather, Ionicons, MaterialIcons } from '@expo/vector-icons';
-import { createBottomTabNavigator, TabBarBottom } from 'react-navigation';
+import { createBottomTabNavigator, createStackNavigator, TabBarBottom } from 'react-navigation';
 import { ACTIVE_TINT_COLOR, BACKGROUND_COLOR, INACTIVE_TINT_COLOR } from './Constants';
 import PersonDetails from './PersonDetails';
 import PersonList from './PersonList';
@@ -67,11 +67,52 @@ const styles = StyleSheet.create({
   },
 });
 
+const PeopleStack = createStackNavigator(
+  {
+    PersonList: PersonList,
+    PersonDetails: PersonDetails,
+  },
+  {
+    initialRouteName: "PersonList",
+    initialRouteParams: {
+      people: [
+
+        {
+          name: "Maria Perez",
+          level: 4,
+          conversationLevel: 5,
+          phoneNumber: "+56 2 52908910",
+          keyQuestions: [
+            {question: "Are they open to prayer?", response: "Yes"},
+            {question: "Are they open to reading the Bible?", response: "Yes"},
+            {question: "Are they open to coming to church?", response: "Yes"},
+            {question: "Did they accept Christ?", response: "No"},
+          ],
+        },
+
+        {
+          name: "Kevin Kim",
+          level: 3,
+          conversationLevel: 4,
+          phoneNumber: "+56 2 52908910",
+          keyQuestions: [
+            {question: "Are they open to prayer?", response: "Yes"},
+            {question: "Are they open to reading the Bible?", response: "Yes"},
+            {question: "Are they open to coming to church?", response: "No"},
+            {question: "Did they accept Christ?", response: "N/A"},
+          ],
+        },
+
+      ],
+    },
+  }
+)
+
 export default createBottomTabNavigator(
   {
     Home: HomeScreen,
     Intake: IntakeScreen,
-    People: PeopleScreen,
+    People: PeopleStack,
   },
   {
     navigationOptions: ({navigation}) => ({
