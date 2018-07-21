@@ -6,7 +6,7 @@ import {
   TouchableHighlight,
   View,
 } from 'react-native';
-import { withMappedNavigationProps } from 'react-navigation-props-mapper'
+import { withMappedNavigationProps } from 'react-navigation-props-mapper';
 import { MaterialIcons } from '@expo/vector-icons';
 import { LEVELS, LEVEL_COLORS } from "./Constants";
 import LevelCircle from "./LevelCircle";
@@ -24,6 +24,7 @@ export default class PersonList extends React.Component {
         <TouchableHighlight
           key={"person" + index}
           onPress={this.onPress(index)}
+          underlayColor="#666666"
         >
           <View
             style={styles.personContainer}

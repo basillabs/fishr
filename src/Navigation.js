@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Entypo, Feather, Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { createBottomTabNavigator, createStackNavigator, TabBarBottom } from 'react-navigation';
 import { ACTIVE_TINT_COLOR, BACKGROUND_COLOR, INACTIVE_TINT_COLOR } from './Constants';
+import NewPersonForm from './Form';
 import PersonDetails from './PersonDetails';
 import PersonList from './PersonList';
 import SliderCard from './SliderCard';
@@ -10,10 +11,13 @@ import SliderCard from './SliderCard';
 class StatisticsScreen extends React.Component {
   render() {
     return (
-      <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
-        <Entypo name={'bar-graph'} size={75} color={ACTIVE_TINT_COLOR} />
-      </View>
+      <NewPersonForm />
     );
+    // return (
+    //   <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
+    //     <Entypo name={'bar-graph'} size={75} color={ACTIVE_TINT_COLOR} />
+    //   </View>
+    // );
   }
 }
 
@@ -57,6 +61,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
+
+const IntakeStack = createStackNavigator(
+  {
+    NewPersonForm: NewPersonForm,
+    SliderCard: SliderCard,
+  }
+);
 
 const PeopleStack = createStackNavigator(
   {
@@ -102,7 +113,7 @@ const PeopleStack = createStackNavigator(
 export default createBottomTabNavigator(
   {
     Statistics: StatisticsScreen,
-    Intake: IntakeScreen,
+    Intake: IntakeStack,
     People: PeopleStack,
   },
   {
