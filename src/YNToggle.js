@@ -37,19 +37,20 @@ export default class YNToggle extends React.Component {
         alignItems: "center",
       }}>
         <LevelCircle
-          backgroundColor={this.state.selection === "Y" ? "black" : "white"}
-          color={this.state.selection === "Y" ? "white" : "black"}
+          backgroundColor={this.state.selection === "Y" ? "#000000CC" : "white"}
+          color={this.state.selection === "Y" ? "white" : "#000000CC"}
           number="Y"
           size={30}
-          sizeFont={12}
+          fontSize={12}
           onPress={this.onYPress}
         />
+        <View style={{width: 10}} />
         <LevelCircle
-          backgroundColor={this.state.selection === "N" ? "black" : "white"}
-          color={this.state.selection === "N" ? "white" : "black"}
+          backgroundColor={this.state.selection === "N" ? "#000000CC" : "white"}
+          color={this.state.selection === "N" ? "white" : "#000000CC"}
           number="N"
           size={30}
-          sizeFont={12}
+          fontSize={12}
           onPress={this.onNPress}
         />
       </View>
