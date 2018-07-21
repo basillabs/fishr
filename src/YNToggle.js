@@ -7,24 +7,20 @@ export default class YNToggle extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selection: "none",
+      selection: "N/A",
     };
   }
 
   onYPress = () => {
-    if (this.state.selection === "Y") {
-      this.setState({selection: "none"});
-    } else {
-      this.setState({selection: "Y"});
-    }
+    let newState = this.state.selection === "Yes" ? "N/A" : "Yes";
+    this.setState({selection: newState});
+    this.props.onValueChange(newState);
   }
 
   onNPress = () => {
-    if (this.state.selection === "N") {
-      this.setState({selection: "none"});
-    } else {
-      this.setState({selection: "N"});
-    }
+    let newState = this.state.selection === "No" ? "N/A" : "No";
+    this.setState({selection: newState});
+    this.props.onValueChange(newState);
   }
 
   render() {
@@ -37,8 +33,8 @@ export default class YNToggle extends React.Component {
         alignItems: "center",
       }}>
         <LevelCircle
-          backgroundColor={this.state.selection === "Y" ? "#000000CC" : "white"}
-          color={this.state.selection === "Y" ? "white" : "#000000CC"}
+          backgroundColor={this.state.selection === "Yes" ? "#000000CC" : "white"}
+          color={this.state.selection === "Yes" ? "white" : "#000000CC"}
           number="Y"
           size={30}
           fontSize={12}
@@ -46,8 +42,8 @@ export default class YNToggle extends React.Component {
         />
         <View style={{width: 10}} />
         <LevelCircle
-          backgroundColor={this.state.selection === "N" ? "#000000CC" : "white"}
-          color={this.state.selection === "N" ? "white" : "#000000CC"}
+          backgroundColor={this.state.selection === "No" ? "#000000CC" : "white"}
+          color={this.state.selection === "No" ? "white" : "#000000CC"}
           number="N"
           size={30}
           fontSize={12}

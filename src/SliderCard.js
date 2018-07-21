@@ -14,6 +14,7 @@ export default class SliderCard extends React.Component {
 
   onValueChange = (value) => {
     this.setState({level: value, hasChanged: true});
+    this.props.onValueChange(value);
   }
 
   getDescription = () => {

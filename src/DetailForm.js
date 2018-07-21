@@ -9,13 +9,35 @@ import YNToggle from "./YNToggle";
 
 @withMappedNavigationProps()
 export default class DetailForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      spiritualLevel: 0,
+      conversationLevel: 0,
+      keyQuestions: KEY_QUESTIONS.map(() => { return "N/A" }),
+    };
+  }
 
   shouldDisableDone = () => {
-    return false;
+    return this.state.spiritualLevel === 0 || this.state.conversationLevel === 0;
   }
 
   onDone = () => {
-    // FIXME
+    console.warn(this.state);
+  }
+
+  onSpiritualLevelChanged = (value) => {
+    this.setState({spiritualLevel: value});
+  }
+
+  onConversationLevelChanged = (value) => {
+    this.setState({conversationLevel: value});
+  }
+
+  onYNChanged = (index) => (value) => {
+    let keyQuestions = this.state.keyQuestions;
+    keyQuestions[index] = value;
+    this.setState({keyQuestions: keyQuestions});
   }
 
   renderTitleBar = () => {
@@ -56,7 +78,7 @@ export default class DetailForm extends React.Component {
           }}
         >
           <Text style={styles.normalText}>{question}</Text>
-          <YNToggle />
+          <YNToggle onValueChange={this.onYNChanged(index)}/>
         </View>
       );
     });
@@ -90,12 +112,14 @@ export default class DetailForm extends React.Component {
             levelTexts={LEVELS}
             levelColors={LEVEL_COLORS}
             title="SPIRITUAL INTEREST LEVEL"
+            onValueChange={this.onSpiritualLevelChanged}
           />
           <SliderCard
             levelTexts={CONVERSATION_LEVELS}
             levelColors={CONVERSATION_COLORS}
             title="MEASURE CONVERSATION"
             descriptionHeight={40}
+            onValueChange={this.onConversationLevelChanged}
           />
           {this.renderKeyQuestions()}
         </ScrollView>
