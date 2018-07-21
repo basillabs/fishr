@@ -21,15 +21,14 @@ export default class PersonDetails extends React.Component {
         alignItems: "center",
         backgroundColor: LEVEL_COLORS[this.props.level - 1],
         height: 200,
+        paddingHorizontal: 32,
       }}>
         <Text style={styles.titleText}>{this.props.name}</Text>
-        <View style={{marginRight: 15}}>
-          <LevelCircle
-            backgroundColor={LEVEL_COLORS[this.props.level - 1]}
-            color="white"
-            number={this.props.level}
-          />
-        </View>
+        <LevelCircle
+          backgroundColor={LEVEL_COLORS[this.props.level - 1]}
+          color="white"
+          number={this.props.level}
+        />
       </View>
     )
   }
@@ -126,6 +125,7 @@ export default class PersonDetails extends React.Component {
             fontSize: 14,
             color: "#666666",
             marginLeft: 10,
+            width: 120,
           }}>{CONVERSATION_LEVELS[this.props.conversationLevel - 1]}</Text>
           {this.renderConversationMeter()}
         </View>
@@ -222,7 +222,6 @@ const styles = StyleSheet.create({
     fontFamily: "georgia",
     fontSize: 36,
     color: "white",
-    paddingLeft: 15,
   },
   sectionContainer: {
     padding: 32,

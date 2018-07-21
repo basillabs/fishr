@@ -70,6 +70,7 @@ export default class DetailForm extends React.Component {
         backgroundColor: DEFAULT_BLUE,
         height: 160,
         width: "100%",
+        paddingHorizontal: 32,
         zIndex: 10,
       }}>
         <Text style={styles.titleText}>{this.props.name}</Text>
