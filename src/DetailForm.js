@@ -6,6 +6,7 @@ import SliderCard from './SliderCard';
 import { CONVERSATION_LEVELS, CONVERSATION_COLORS, KEY_QUESTIONS, LEVELS, LEVEL_COLORS } from "./Constants";
 import LevelCircle from "./LevelCircle";
 import YNToggle from "./YNToggle";
+import peopleStore from "./Store";
 
 @withMappedNavigationProps()
 export default class DetailForm extends React.Component {
@@ -23,7 +24,18 @@ export default class DetailForm extends React.Component {
   }
 
   onDone = () => {
-    console.warn(this.state);
+    let newPerson = {
+      name: this.props.name,
+      level: this.state.spiritualLevel,
+      conversationLevel: this.state.conversationLevel,
+      phoneNumber: this.props.phoneNumber,
+      keyQuestions: this.state.keyQuestions,
+    };
+    peopleStore.push(newPerson);
+    this.props.navigation.replace("NewPersonForm");
+    this.props.navigation.navigate("PersonList", {
+      people: peopleStore,
+    });
   }
 
   onSpiritualLevelChanged = (value) => {
@@ -122,6 +134,7 @@ export default class DetailForm extends React.Component {
             onValueChange={this.onConversationLevelChanged}
           />
           {this.renderKeyQuestions()}
+          <View style={{height: 55}} />
         </ScrollView>
       </View>
     );

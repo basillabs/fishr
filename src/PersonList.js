@@ -47,8 +47,8 @@ export default class PersonList extends React.Component {
       peopleWithBorders.push(personView);
       peopleWithBorders.push(
         <View key={"border" + index} style={{
-          height: 0.4,
-          backgroundColor: "#979797",
+          height: 1,
+          backgroundColor: "#97979780",
         }}/>
       );
     });

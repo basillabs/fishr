@@ -7,12 +7,14 @@ import DetailForm from './DetailForm';
 import NewPersonForm from './Form';
 import PersonDetails from './PersonDetails';
 import PersonList from './PersonList';
+import peopleStore from './Store';
 
 class StatisticsScreen extends React.Component {
   render() {
     return (
       <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
         <Entypo name={'bar-graph'} size={75} color={ACTIVE_TINT_COLOR} />
+        <Text>Feature coming soon!</Text>
       </View>
     );
   }
@@ -54,31 +56,7 @@ const PeopleStack = createStackNavigator(
   },
   {
     initialRouteName: "PersonList",
-    initialRouteParams: {
-      people: [
-
-        {
-          name: "Maria Perez",
-          level: 4,
-          conversationLevel: 5,
-          phoneNumber: "+56 2 52908910",
-          keyQuestions: [
-            "Yes", "Yes", "Yes", "No",
-          ],
-        },
-
-        {
-          name: "Kevin Kim",
-          level: 3,
-          conversationLevel: 4,
-          phoneNumber: "+56 2 52908910",
-          keyQuestions: [
-            "Yes", "Yes", "No", "N/A",
-          ],
-        },
-
-      ],
-    },
+    initialRouteParams: { people: peopleStore },
   }
 )
 
