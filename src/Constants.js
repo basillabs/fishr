@@ -20,7 +20,7 @@ export const CONVERSATION_LEVELS = [
   "Talked a bit about faith",
   "Got to the Gospel",
   "Shared all of Gospel",
-  "Shared all of Gospel with follow-up",
+  "Shared and wants more!",
 ];
 
 export const CONVERSATION_COLORS = CONVERSATION_LEVELS.map(() => {

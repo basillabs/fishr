@@ -71,7 +71,7 @@ export default class PersonDetails extends React.Component {
             color="white"
             number={this.props.level}
           />
-          <View style={{marginLeft: 10, marginRight: 60}}> // why...
+          <View style={{marginLeft: 10, marginRight: 60}}>
             <Text style={styles.normalText}>{LEVELS[this.props.level - 1]}</Text>
           </View>
         </View>
