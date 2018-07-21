@@ -3,6 +3,23 @@ import Slider from "react-native-slider";
 import { StyleSheet, View } from 'react-native';
 
 export default class SpectrumSlider extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: 1,
+    }
+  }
+
+  onValueChange = (value) => {
+    this.setState({value: value});
+    this.props.onValueChange(Math.round(value));
+  }
+
+  onSlidingComplete = (value) => {
+    this.setState({value: Math.round(value)});
+    this.props.onValueChange(Math.round(value));
+  };
+
   render() {
     let dots = this.props.levelColors.map((color, index) => {
       return (
@@ -29,13 +46,14 @@ export default class SpectrumSlider extends React.Component {
         <Slider
           minimumValue={1}
           maximumValue={this.props.levelColors.length}
-          step={1}
-          value={1}
+          value={this.state.value}
           trackStyle={styles.track}
           thumbStyle={styles.thumb}
           thumbImage={require('../assets/images/slider.png')}
           thumbTouchSize={{width: 60, height: 60}}
-          onValueChange={this.props.onValueChange}
+          onValueChange={this.onValueChange}
+          onSlidingComplete={this.onSlidingComplete}
+          animateTransitions
         />
       </View>
     )
