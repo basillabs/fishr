@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Button, Platform, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { withMappedNavigationProps } from 'react-navigation-props-mapper';
 import { BACKGROUND_COLOR } from './Constants';
 import SliderCard from './SliderCard';
@@ -77,7 +77,7 @@ export default class DetailForm extends React.Component {
         <Button
           onPress={this.onDone}
           title="Done"
-          color="white"
+          color={Platform.OS === "ios" ? "white" : "black"}
           disabled={this.shouldDisableDone()}
         />
       </View>
