@@ -36,7 +36,11 @@ export default class NewPersonForm extends React.Component {
   }
 
   onButtonPressed = () => {
-    this.props.navigation.navigate("DetailForm");
+    this.props.navigation.navigate("DetailForm", {
+      name: this.state.name,
+      phoneNumber: this.state.phoneNumber,
+      email: this.state.email,
+    });
   }
 
   render() {

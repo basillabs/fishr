@@ -24,11 +24,11 @@ export default class PersonDetails extends React.Component {
       }}>
         <Text style={styles.titleText}>{this.props.name}</Text>
         <View style={{marginRight: 15}}>
-        <LevelCircle
-          backgroundColor={LEVEL_COLORS[this.props.level - 1]}
-          color="white"
-          number={this.props.level}
-        />
+          <LevelCircle
+            backgroundColor={LEVEL_COLORS[this.props.level - 1]}
+            color="white"
+            number={this.props.level}
+          />
         </View>
       </View>
     )
