@@ -8,11 +8,19 @@ export default class SliderCard extends React.Component {
     super(props);
     this.state = {
       level: 3,
+      hasChanged: false,
     }
   }
 
   onValueChange = (value) => {
-    this.setState({level: value});
+    this.setState({level: value, hasChanged: true});
+  }
+
+  getDescription = () => {
+    if (this.state.hasChanged) {
+      return "Level " + this.state.level + ": " + this.props.levelTexts[this.state.level - 1];
+    }
+    return "Please drag to select proper level"
   }
 
   render() {
@@ -36,7 +44,7 @@ export default class SliderCard extends React.Component {
             height: this.props.descriptionHeight || 70,
             width: 270,
           }}>
-            {"Level " + this.state.level + ": " + this.props.levelTexts[this.state.level - 1]}
+            {this.getDescription()}
           </Text>
         </View>
         <SpectrumSlider

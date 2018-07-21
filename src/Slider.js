@@ -30,7 +30,7 @@ export default class SpectrumSlider extends React.Component {
           minimumValue={1}
           maximumValue={this.props.levelColors.length}
           step={1}
-          value={3}
+          value={1}
           trackStyle={styles.track}
           thumbStyle={styles.thumb}
           thumbImage={require('../assets/images/slider.png')}
