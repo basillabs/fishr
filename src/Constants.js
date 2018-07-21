@@ -6,14 +6,6 @@ export const LEVELS = [
   "This person is actively seeking and would like guidance.",
 ];
 
-export const LEVEL_COLORS = [
-  '#ED5555',
-  '#F1B34E',
-  '#EFDA5E',
-  '#80E06C',
-  '#30BE91',
-];
-
 export const CONVERSATION_LEVELS = [
   "Didn't talk about faith",
   "Talked slightly about faith",
@@ -22,10 +14,6 @@ export const CONVERSATION_LEVELS = [
   "Shared all of Gospel",
   "Shared and wants more!",
 ];
-
-export const CONVERSATION_COLORS = CONVERSATION_LEVELS.map(() => {
-  return "#4A90E2";
-});
 
 export const KEY_QUESTIONS = [
     "Are they open to prayer?",
@@ -37,4 +25,16 @@ export const KEY_QUESTIONS = [
 export const BACKGROUND_COLOR = '#F1F2F2';
 export const ACTIVE_TINT_COLOR = '#2E3130';
 export const INACTIVE_TINT_COLOR = '#F1F2F2';
+export const DEFAULT_BLUE = "#4A90E2";
 
+export const LEVEL_COLORS = [
+  '#ED5555',
+  '#F1B34E',
+  '#EFDA5E',
+  '#80E06C',
+  '#30BE91',
+];
+
+export const CONVERSATION_COLORS = CONVERSATION_LEVELS.map(() => {
+  return DEFAULT_BLUE;
+});

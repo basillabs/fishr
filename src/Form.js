@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import { FormLabel, FormInput, FormValidationMessage } from 'react-native-elements';
 import { withMappedNavigationProps } from 'react-navigation-props-mapper';
+import { DEFAULT_BLUE } from './Constants';
 
 @withMappedNavigationProps()
 export default class NewPersonForm extends React.Component {
@@ -65,7 +66,7 @@ export default class NewPersonForm extends React.Component {
         <Button
           onPress={this.onButtonPressed}
           title="NEXT"
-          color="#4A90E2"
+          color={DEFAULT_BLUE}
           disabled={this.shouldDisableNext()}
         />
       </View>

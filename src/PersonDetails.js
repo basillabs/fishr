@@ -7,7 +7,7 @@ import {
   View,
 } from 'react-native';
 import { withMappedNavigationProps } from 'react-navigation-props-mapper'
-import { CONVERSATION_LEVELS, KEY_QUESTIONS, LEVELS, LEVEL_COLORS } from "./Constants";
+import { CONVERSATION_LEVELS, DEFAULT_BLUE, KEY_QUESTIONS, LEVELS, LEVEL_COLORS } from "./Constants";
 import LevelCircle from "./LevelCircle";
 
 @withMappedNavigationProps()
@@ -254,7 +254,7 @@ const styles = StyleSheet.create({
   phoneText: {
     fontFamily: "proxima-nova-regular",
     fontSize: 24,
-    color: "#4A90E2",
+    color: DEFAULT_BLUE,
   },
   delimiter: {
     marginHorizontal: 32,

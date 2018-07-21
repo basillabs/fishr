@@ -44,6 +44,7 @@ export default class SliderCard extends React.Component {
             marginHorizontal: 32,
             height: this.props.descriptionHeight || 70,
             width: 270,
+            textAlign: "center",
           }}>
             {this.getDescription()}
           </Text>

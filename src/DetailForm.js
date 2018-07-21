@@ -3,7 +3,14 @@ import { Button, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { withMappedNavigationProps } from 'react-navigation-props-mapper';
 import { BACKGROUND_COLOR } from './Constants';
 import SliderCard from './SliderCard';
-import { CONVERSATION_LEVELS, CONVERSATION_COLORS, KEY_QUESTIONS, LEVELS, LEVEL_COLORS } from "./Constants";
+import {
+  CONVERSATION_COLORS,
+  CONVERSATION_LEVELS,
+  DEFAULT_BLUE,
+  KEY_QUESTIONS,
+  LEVELS,
+  LEVEL_COLORS,
+} from "./Constants";
 import LevelCircle from "./LevelCircle";
 import YNToggle from "./YNToggle";
 import peopleStore from "./Store";
@@ -60,7 +67,7 @@ export default class DetailForm extends React.Component {
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
-        backgroundColor: "#4A90E2",
+        backgroundColor: DEFAULT_BLUE,
         height: 160,
         width: "100%",
         zIndex: 10,

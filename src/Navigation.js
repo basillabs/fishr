@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Entypo, Feather, Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { createBottomTabNavigator, createStackNavigator, TabBarBottom } from 'react-navigation';
-import { ACTIVE_TINT_COLOR, BACKGROUND_COLOR, INACTIVE_TINT_COLOR } from './Constants';
+import { ACTIVE_TINT_COLOR, BACKGROUND_COLOR, DEFAULT_BLUE, INACTIVE_TINT_COLOR } from './Constants';
 import DetailForm from './DetailForm';
 import NewPersonForm from './Form';
 import PersonDetails from './PersonDetails';
@@ -14,7 +14,7 @@ class StatisticsScreen extends React.Component {
     return (
       <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
         <Entypo name={'bar-graph'} size={75} color={ACTIVE_TINT_COLOR} />
-        <Text>Feature coming soon!</Text>
+        <Text>Stats coming soon!</Text>
       </View>
     );
   }
@@ -77,7 +77,7 @@ export default createBottomTabNavigator(
                 height: 80,
                 width: 80,
                 borderRadius: 100,
-                backgroundColor: '#2E3130',
+                backgroundColor: DEFAULT_BLUE,
                 paddingTop: 15,
                 position: 'absolute',
                 alignItems: 'center',
