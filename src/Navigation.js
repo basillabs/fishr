@@ -7,21 +7,12 @@ import PersonDetails from './PersonDetails';
 import PersonList from './PersonList';
 import SliderCard from './SliderCard';
 
-class HomeScreen extends React.Component {
+class StatisticsScreen extends React.Component {
   render() {
     return (
-      <PersonList
-        people={[
-          {
-            name: "Maria Perez",
-            level: 4,
-          },
-          {
-            name: "Kevin Kim",
-            level: 3,
-          },
-        ]}
-      />
+      <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
+        <Entypo name={'bar-graph'} size={75} color={ACTIVE_TINT_COLOR} />
+      </View>
     );
   }
 }
@@ -110,7 +101,7 @@ const PeopleStack = createStackNavigator(
 
 export default createBottomTabNavigator(
   {
-    Home: HomeScreen,
+    Statistics: StatisticsScreen,
     Intake: IntakeScreen,
     People: PeopleStack,
   },
@@ -134,7 +125,7 @@ export default createBottomTabNavigator(
             </View>
           )
         }
-        if (routeName === 'Home') {
+        if (routeName === 'Statistics') {
           return <Entypo name={'bar-graph'} size={25} color={tintColor} />;
         }
         if (routeName === 'People') {
