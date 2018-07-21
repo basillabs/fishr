@@ -36,7 +36,7 @@ export default class NewPersonForm extends React.Component {
   }
 
   onButtonPressed = () => {
-    this.props.navigation.navigate("SliderCard");
+    this.props.navigation.navigate("DetailForm");
   }
 
   render() {

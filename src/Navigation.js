@@ -3,10 +3,10 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Entypo, Feather, Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { createBottomTabNavigator, createStackNavigator, TabBarBottom } from 'react-navigation';
 import { ACTIVE_TINT_COLOR, BACKGROUND_COLOR, INACTIVE_TINT_COLOR } from './Constants';
+import DetailForm from './DetailForm';
 import NewPersonForm from './Form';
 import PersonDetails from './PersonDetails';
 import PersonList from './PersonList';
-import SliderCard from './SliderCard';
 
 class StatisticsScreen extends React.Component {
   render() {
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
 const IntakeStack = createStackNavigator(
   {
     NewPersonForm: NewPersonForm,
-    SliderCard: SliderCard,
+    DetailForm: DetailForm,
   }
 );
 

@@ -1,11 +1,10 @@
 import React from 'react';
 import Slider from "react-native-slider";
 import { StyleSheet, View } from 'react-native';
-import { LEVELS, LEVEL_COLORS } from "./Constants";
 
 export default class SpectrumSlider extends React.Component {
   render() {
-    let dots = LEVELS.map((text, index) => {
+    let dots = this.props.levelColors.map((color, index) => {
       return (
         <View
           key={"dot" + index}
@@ -13,9 +12,9 @@ export default class SpectrumSlider extends React.Component {
             width: 8,
             height: 8,
             borderRadius: 16,
-            backgroundColor: LEVEL_COLORS[index],
+            backgroundColor: color,
             marginLeft: index > 0 ? 0 : 24,
-            marginRight: index < LEVELS.length - 1 ? 0 : 24,
+            marginRight: index < this.props.levelColors.length - 1 ? 0 : 24,
           }}
         />
       )
@@ -29,7 +28,7 @@ export default class SpectrumSlider extends React.Component {
         </View>
         <Slider
           minimumValue={1}
-          maximumValue={5}
+          maximumValue={this.props.levelColors.length}
           step={1}
           value={3}
           trackStyle={styles.track}

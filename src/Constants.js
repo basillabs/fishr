@@ -23,6 +23,10 @@ export const CONVERSATION_LEVELS = [
   "Shared all of Gospel with follow-up",
 ];
 
+export const CONVERSATION_COLORS = CONVERSATION_LEVELS.map(() => {
+  return "#4A90E2";
+});
+
 export const BACKGROUND_COLOR = '#F1F2F2';
 export const ACTIVE_TINT_COLOR = '#2E3130';
 export const INACTIVE_TINT_COLOR = '#F1F2F2';
