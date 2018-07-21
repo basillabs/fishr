@@ -1,6 +1,8 @@
 {
   "expo": {
     "sdkVersion": "27.0.0",
-    "name": "Fishr"
+    "name": "Fishr",
+    "description": "A tool for evangelists.",
+    "icon": "./assets/images/icon.png"
   }
 }
