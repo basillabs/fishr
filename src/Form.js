@@ -46,20 +46,31 @@ export default class NewPersonForm extends React.Component {
 
   render() {
     return (
-      <View>
-        <FormLabel>NAME</FormLabel>
+      <View style={styles.container}>
+        <FormLabel labelStyle={styles.label}>NAME</FormLabel>
         <FormInput
           textContentType="name"
+          containerStyle={styles.input}
+          inputStyle={styles.inputText}
+          underlineColorAndroid={DEFAULT_BLUE}
           onChangeText={this.onNameChanged}
         />
-        <FormLabel>PHONE NUMBER</FormLabel>
+        <FormLabel labelStyle={styles.label}>PHONE NUMBER</FormLabel>
         <FormInput
           textContentType="telephoneNumber"
+          keyboardType="phone-pad"
+          containerStyle={styles.input}
+          inputStyle={styles.inputText}
+          underlineColorAndroid={DEFAULT_BLUE}
           onChangeText={this.onPhoneNumberChanged}
         />
-        <FormLabel>EMAIL</FormLabel>
+        <FormLabel labelStyle={styles.label}>EMAIL</FormLabel>
         <FormInput
           textContentType="emailAddress"
+          keyboardType="email-address"
+          containerStyle={styles.input}
+          inputStyle={styles.inputText}
+          underlineColorAndroid={DEFAULT_BLUE}
           onChangeText={this.onEmailChanged}
         />
 
@@ -73,3 +84,22 @@ export default class NewPersonForm extends React.Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    padding: 26,
+  },
+  label: {
+    fontFamily: "proxima-nova-semibold",
+    fontSize: 11,
+    color: "#666666B2",
+  },
+  input: {
+    marginBottom: 25,
+  },
+  inputText: {
+    fontFamily: "georgia",
+    fontSize: 24,
+    color: "#666666",
+  },
+});
