@@ -51,6 +51,7 @@ export default class SliderCard extends React.Component {
         </View>
         <SpectrumSlider
           levelColors={this.props.levelColors}
+          minimumTrackColor={this.props.minimumTrackColor || "transparent"}
           onValueChange={this.onValueChange}
         />
       </View>

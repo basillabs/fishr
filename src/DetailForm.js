@@ -137,6 +137,7 @@ export default class DetailForm extends React.Component {
           <SliderCard
             levelTexts={CONVERSATION_LEVELS}
             levelColors={CONVERSATION_COLORS}
+            minimumTrackColor={DEFAULT_BLUE}
             title="MEASURE CONVERSATION"
             descriptionHeight={40}
             onValueChange={this.onConversationLevelChanged}

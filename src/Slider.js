@@ -38,6 +38,8 @@ export default class SpectrumSlider extends React.Component {
     });
     return (
       <View style={styles.container}>
+        <View style={styles.fakeTrackLeft} />
+        <View style={styles.fakeTrackRight} />
         <View
           style={styles.dotsContainer}
         >
@@ -47,6 +49,7 @@ export default class SpectrumSlider extends React.Component {
           minimumValue={1}
           maximumValue={this.props.levelColors.length}
           value={this.state.value}
+          minimumTrackTintColor={this.props.minimumTrackColor || "transparent"}
           trackStyle={styles.track}
           thumbStyle={styles.thumb}
           thumbImage={require('../assets/images/slider.png')}
@@ -62,21 +65,42 @@ export default class SpectrumSlider extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+    flexDirection: "column",
     alignItems: "stretch",
-    justifyContent: "center"
+    justifyContent: "center",
+    width: "100%",
   },
   dotsContainer: {
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
     position: 'absolute',
-    width: 100 + "%",
+    width: "100%",
     zIndex: -1,
   },
   track: {
-    backgroundColor: '#979797',
+    backgroundColor: 'transparent',
     height: 0.4,
     marginHorizontal: 24,
+  },
+  // Kinda faked this. There might be a bug in react when width is 100%.
+  fakeTrackLeft: {
+    position: 'absolute',
+    left: 24,
+    backgroundColor: '#979797',
+    width: "50%",
+    height: 0.4,
+    zIndex: -2,
+  },
+  fakeTrackRight: {
+    position: 'absolute',
+    right: 24,
+    backgroundColor: '#979797',
+    width: "50%",
+    height: 0.4,
+    zIndex: -2,
   },
   thumb: {
     backgroundColor: "white",
